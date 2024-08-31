@@ -1,8 +1,9 @@
 #!/bin/bash
+
 FILEPATH=$1
 SEARCH_WORD=$2
 USAGE(){
-        echo "USAGE:: sh <filename.sh> <argument1> <argument2>"
+        echo "USAGE:: sh <filename.sh> $1 $2"
         exit 1
 }
 if [ $# -lt 2 ]
