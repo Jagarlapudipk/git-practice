@@ -12,3 +12,5 @@ echo "home directory of current user: $HOME"
 
 echo "PID of the script executing now: $$"
 
+echo "PID of last background command: $!"
+
