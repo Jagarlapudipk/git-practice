@@ -3,6 +3,16 @@
 USERID=$(id -u)
 #echo "userid is: $USERID"
 
+VALIDATE(){
+    if [ $1 -ne 0 ]
+    then
+        echo " Command is ...FAILED"
+        exit 1
+    else
+        echo "Command is ...Success"
+    fi
+}
+
 if [ $USERID -ne 0 ]
 then    
     echo "please run this script with root preveleges"
@@ -11,38 +21,41 @@ fi
 
 dnf list installed git 
 
-if [ $? -ne 0 ]
-then
-    echo "Git is not installed, going to install it"
-    dnf install git -y
-    if [ $? -ne 0 ]
-    then
-        echo "Git installation is not success"
-        exit 1
-    else
-        echo "Git installation is success"
-    fi
+VALIDATE $?
 
-elase
-    echo "Git is already installed"
 
-fi
+# if [ $? -ne 0 ]
+# then
+#     echo "Git is not installed, going to install it"
+#     dnf install git -y
+#     if [ $? -ne 0 ]
+#     then
+#         echo "Git installation is not success"
+#         exit 1
+#     else
+#         echo "Git installation is success"
+#     fi
 
-dnf list installed mysql
+# elase
+#     echo "Git is already installed"
 
-if [ $? -ne 0 ]
-then  
-    echo "MYSQL is not installed...going to install"
-    dnf install mysql -y
-    if [ $? -ne 0 ]
-    then
-        echo "MYSQL installation is failure..please check"
-        exit 1
-    else
-        echo "MYSQL installation is success"
-    fi
-else 
-    echo "MYSQL is already installed"
-fi
+# fi
+
+# dnf list installed mysql
+
+# if [ $? -ne 0 ]
+# then  
+#     echo "MYSQL is not installed...going to install"
+#     dnf install mysql -y
+#     if [ $? -ne 0 ]
+#     then
+#         echo "MYSQL installation is failure..please check"
+#         exit 1
+#     else
+#         echo "MYSQL installation is success"
+#     fi
+# else 
+#     echo "MYSQL is already installed"
+# fi
 
 
